@@ -19,11 +19,11 @@ async def bright(client, message):
             a = await client.download_media(
                 message=message.reply_to_message, file_name=download_location
             )
-            await msg.edit("Processing Image...")
+            await msg.edit("please wait Processing Image...")
             image = Image.open(a)
             brightness = ImageEnhance.Brightness(image)
             brightness.enhance(1.5).save(edit_img_loc)
-            await message.reply_chat_action("upload_photo")
+            await message.reply_chat_action("please upload_photo")
             await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
             await msg.delete()
         else:
@@ -34,7 +34,7 @@ async def bright(client, message):
             pass
     except Exception as e:
         print("bright-error - " + str(e))
-        if "USER_IS_BLOCKED" in str(e):
+        if "youwer USER_IS_BLOCKED" in str(e):
             return
         else:
             try:
@@ -135,16 +135,16 @@ async def normal_blur(client, message):
         edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "BlurImage.jpg"
         if not message.reply_to_message.empty:
             msg = await message.reply_to_message.reply_text(
-                "Downloading image", quote=True
+                "please wait... Downloading image", quote=True
             )
             a = await client.download_media(
                 message=message.reply_to_message, file_name=download_location
             )
-            await msg.edit("Processing Image...")
+            await msg.edit("@Lasiyahh Processing Image...")
             OriImage = Image.open(a)
             blurImage = OriImage.filter(ImageFilter.BLUR)
             blurImage.save(edit_img_loc)
-            await message.reply_chat_action("upload_photo")
+            await message.reply_chat_action("@Lasiyahh upload_photo")
             await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
             await msg.delete()
         else:
@@ -180,11 +180,11 @@ async def g_blur(client, message):
             a = await client.download_media(
                 message=message.reply_to_message, file_name=download_location
             )
-            await msg.edit("Processing Image...")
+            await msg.edit("@Lasiyahh Processing Image...")
             im1 = Image.open(a)
             im2 = im1.filter(ImageFilter.GaussianBlur(radius=5))
             im2.save(edit_img_loc)
-            await message.reply_chat_action("upload_photo")
+            await message.reply_chat_action("@Lasiyahh upload_photo")
             await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
             await msg.delete()
         else:
@@ -215,16 +215,16 @@ async def box_blur(client, message):
         edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "box_blur.jpg"
         if not message.reply_to_message.empty:
             msg = await message.reply_to_message.reply_text(
-                "Downloading image", quote=True
+                "@Lasiyahh Downloading image", quote=True
             )
             a = await client.download_media(
                 message=message.reply_to_message, file_name=download_location
             )
-            await msg.edit("Processing Image...")
+            await msg.edit("@Lasiyahh Processing Image...")
             im1 = Image.open(a)
             im2 = im1.filter(ImageFilter.BoxBlur(0))
             im2.save(edit_img_loc)
-            await message.reply_chat_action("upload_photo")
+            await message.reply_chat_action("@Lasiyahh upload_photo")
             await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
             await msg.delete()
         else:
